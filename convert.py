@@ -39,9 +39,9 @@ for i, url in enumerate(unique_urls):
         failed += 1
         print(f"FAIL (HTTP {status})")
 
-with open('out.yaml', 'w') as f:
+with open('out.txt', 'w') as f:
     for url in valid_urls:
-        f.write(f'- "{url}"\n')
+        f.write(f'{url}\n')
 
 with open('log.txt', 'w') as f:
     f.write(f"原始网址: {original}\n")
