@@ -20,11 +20,12 @@ jobs:
           > valid_urls.txt
           while IFS= read -r url; do
             if [ -n "$url" ]; then
-              if curl -sfI --connect-timeout 5 --max-time 10 "$url" > /dev/null 2>&1; then
+              status=$(curl -sL -o /dev/null -w "%{http_code}" --connect-timeout 5 --max-time 10 "$url" 2>/dev/null)
+              if [ "$status" -lt 400 ]; then
                 echo "- \"$url\"" >> valid_urls.txt
-                echo "OK: $url"
+                echo "OK: $url (HTTP $status)"
               else
-                echo "FAIL: $url"
+                echo "FAIL: $url (HTTP $status)"
               fi
             fi
           done < /tmp/urls.txt
