@@ -1,0 +1,48 @@
+name: Check URLs
+
+on:
+  schedule:
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Test URLs
+        run: |
+          cat url.txt | grep -v '^$' | sed 's/^- *//' | sed 's/"//g' | sed "s/^'//;s/'$//" | sort -u > /tmp/urls.txt
+          
+          > valid_urls.txt
+          while IFS= read -r url; do
+            if [ -n "$url" ]; then
+              if curl -sfI --connect-timeout 5 --max-time 10 "$url" > /dev/null 2>&1; then
+                echo "- \"$url\"" >> valid_urls.txt
+                echo "OK: $url"
+              else
+                echo "FAIL: $url"
+              fi
+            fi
+          done < /tmp/urls.txt
+          
+          original=$(wc -l < /tmp/urls.txt)
+          valid=$(wc -l < valid_urls.txt)
+          invalid=$((original - valid))
+          echo "原始: $original, 有效: $valid, 无效: $invalid"
+          
+          echo "原始网址: $original" > log.txt
+          echo "去重数量: $original" >> log.txt
+          echo "有效数量: $valid" >> log.txt
+          echo "无效数量: $invalid" >> log.txt
+          
+          mv valid_urls.txt out.yaml
+
+      - name: Commit and Push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git diff --staged --quiet || git commit -m "Update: $(date +%Y-%m-%d)"
+          git push
