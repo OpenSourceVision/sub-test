@@ -364,7 +364,6 @@ https://raw.githubusercontent.com/Epodonios/v2ray-configs/main/All_Configs_Sub.t
 https://fastly.jsdelivr.net/gh/ALIILAPRO/v2rayng-config@master/sub.txt
 https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/refs/heads/main/Protocols/vless.txt
 https://github.com/BreakingTechFr/Proxy_Free/blob/main/proxies/all.txt
-https://manager.farsonline24.ir
 https://raw.githubusercontent.com/sinspired/airport/main/subs/_pool.yaml
 https://raw.githubusercontent.com/sinspired/airport/main/subs/_previous.yaml
 https://raw.githubusercontent.com/sinspired/airport/main/subs/Pawdroid.yaml
