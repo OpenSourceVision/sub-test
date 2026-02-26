@@ -403,7 +403,6 @@ https://raw.githubusercontent.com/Arefgh72/v2ray-proxy-pars-tester/main/output/g
 https://raw.githubusercontent.com/ovmvo/SubShare/main/sub/permanent/mihomo.yaml#sinspired/subs-check
 https://raw.githubusercontent.com/liMilCo/v2r/main/base64/2.txt#sinspired/subs-check
 https://raw.githubusercontent.com/liMilCo/v2r/main/configs.txt#sinspired/subs-check
-https://raw.githubusercontent.com/Delta-Kronecker/Xray/main/data/working_url/working_all_urls.txt#sinspired/subs-check
 https://raw.githubusercontent.com/MatinGhanbari/v2ray-configs/main/subscriptions/v2ray/subs/sub2.txt#sinspired/subs-check
 https://raw.githubusercontent.com/barry-far/V2ray-config/main/Sub2.txt#sinspired/subs-check
 https://raw.githubusercontent.com/MhdiTaheri/V2rayCollector/main/sub/mix#sinspired/subs-check
